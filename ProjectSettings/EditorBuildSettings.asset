@@ -4,4 +4,12 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/AndroidBluetoothMultiplayer/Demos/Scenes/BluetoothDemoMenu.unity
+  - enabled: 1
+    path: Assets/AndroidBluetoothMultiplayer/Demos/Scenes/BluetoothDiscoveryDemo.unity
+  - enabled: 1
+    path: Assets/AndroidBluetoothMultiplayer/Demos/Scenes/BluetoothFileTransferDemo.unity
+  - enabled: 1
+    path: Assets/AndroidBluetoothMultiplayer/Demos/Scenes/BluetoothMultiplayerDemo.unity
