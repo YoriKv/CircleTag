@@ -128,18 +128,6 @@ Prefab:
       propertyPath: cardboardHead
       value: 
       objectReference: {fileID: 1386402374}
-    - target: {fileID: 466824, guid: e252fd884f4c4614893ba161ce16121f, type: 2}
-      propertyPath: m_LocalScale.z
-      value: -100
-      objectReference: {fileID: 0}
-    - target: {fileID: 466824, guid: e252fd884f4c4614893ba161ce16121f, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 466824, guid: e252fd884f4c4614893ba161ce16121f, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 30
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e252fd884f4c4614893ba161ce16121f, type: 2}
   m_IsPrefabParent: 0

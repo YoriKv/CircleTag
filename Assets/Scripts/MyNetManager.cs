@@ -11,11 +11,9 @@ public class MyNetManager:NetworkManager {
     }
 
     public override void OnStartClient(NetworkClient client) {
-        discovery.showGUI = false;
     }
 
     public override void OnStopClient() {
         discovery.StopBroadcast();
-        discovery.showGUI = true;
     }
 }

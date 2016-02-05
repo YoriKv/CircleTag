@@ -25,7 +25,7 @@ public class Player:NetworkBehaviour {
         if(Input.GetMouseButton(0) && Physics.Raycast(ray, out hit, 100, floorMask.value)) {
             Vector3 tarPos = hit.point;
             tarPos.y = transform.position.y;
-            transform.position = Vector3.MoveTowards(transform.position, tarPos, Time.deltaTime * 5f);
+            transform.position = Vector3.MoveTowards(transform.position, tarPos, Time.deltaTime * 15f);
         }
     }
 

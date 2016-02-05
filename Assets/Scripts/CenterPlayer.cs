@@ -7,6 +7,10 @@ public class CenterPlayer:NetworkBehaviour {
     public Transform cardboardHead;
     public GameObject coneGraphic;
 
+    public override void OnStartClient() {
+        coneGraphic.GetComponent<Renderer>().enabled = !isServer;
+    }
+
     public void Update() {
         if(!isServer)
             return;
