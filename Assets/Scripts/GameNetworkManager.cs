@@ -12,14 +12,17 @@ public class GameNetworkManager:MonoBehaviour {
     private bool _initResult;
     private bool _connected;
 
-    private NetworkManager _nw;
+    private MyNetManager _nw;
+    private MyNetDiscovery _nd;
 
 #if !UNITY_ANDROID
     private void Awake() {
         // Init network manager
-        _nw = GetComponent<NetworkManager>();
+        _nw = GetComponent<MyNetManager>();
         _nw.networkAddress = LOCAL_IP;
         _nw.networkPort = PORT;
+
+        _nd = GetComponent<MyNetDiscovery>();
     }
 
     private void OnGUI() {
@@ -31,10 +34,18 @@ public class GameNetworkManager:MonoBehaviour {
             _nw.StartHost();
             _connected = true;
         }
-        if(GUI.Button(new Rect(370, 10, 150, 50), "Connect to server")) {
-            _nw.StartClient();
+        if(GUI.Button(new Rect(380, 10, 150, 50), "Join server")) {
+            _nd.Initialize();
+            _nd.StartAsClient();
             _connected = true;
         }
+    }
+
+    public void StartClient(string address) {
+        _nw.networkAddress = address;
+        _nw.StartClient();
+        _connected = true;
+        _nd.StopBroadcast();
     }
 #endif
 
