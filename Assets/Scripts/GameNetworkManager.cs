@@ -11,7 +11,7 @@ public class GameNetworkManager:MonoBehaviour {
 
     private MyNetManager _nw;
     private MyNetDiscovery _nd;
-    
+
     private void Awake() {
         // Init network manager
         _nw = GetComponent<MyNetManager>();
@@ -26,13 +26,13 @@ public class GameNetworkManager:MonoBehaviour {
         if(_connected)
             return;
         // Debug
-        if(GUI.Button(new Rect(210, 10, 150, 50), "Create server")) {
+        if(GUI.Button(new Rect(210, 10, 150, 50), "Create server") && !_connected) {
             _nw.StartHost();
             _connected = true;
 
             cardboardMain.SetActive(true);
         }
-        if(GUI.Button(new Rect(380, 10, 150, 50), "Join server")) {
+        if(GUI.Button(new Rect(380, 10, 150, 50), "Join server") && !_connected) {
             _nd.Initialize();
             _nd.StartAsClient();
             _connected = true;
@@ -42,9 +42,9 @@ public class GameNetworkManager:MonoBehaviour {
     }
 
     public void StartClient(string address) {
+        _nd.StopBroadcast();
         _nw.networkAddress = address;
         _nw.StartClient();
         _connected = true;
-        _nd.StopBroadcast();
     }
 }
