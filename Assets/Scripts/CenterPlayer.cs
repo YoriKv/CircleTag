@@ -4,6 +4,7 @@ using UnityEngine.Networking;
 
 public class CenterPlayer:NetworkBehaviour {
     public LayerMask floorMask;
+    public LayerMask allButEye;
     public Transform cardboardHead;
     public GameObject coneGraphic;
     private bool server;
@@ -22,12 +23,16 @@ public class CenterPlayer:NetworkBehaviour {
     }
 
     public void OnTriggerStay(Collider other) {
-        if (!isServer)
+        if(!isServer)
             return;
 
-        Player player = other.GetComponent<Player>();
-        if(player != null) {
-            player.RpcRespawn();
+        // Raycast to check hit
+        RaycastHit hit;
+        if(Physics.Raycast(transform.position, (other.transform.position - transform.position), out hit, 150f, allButEye)) {
+            Player player = other.GetComponent<Player>();
+            if(player != null && other == hit.collider && hit.distance > 8f) {
+                player.RpcRespawn();
+            }
         }
     }
 }

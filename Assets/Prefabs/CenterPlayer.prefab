@@ -184,6 +184,9 @@ MonoBehaviour:
   floorMask:
     serializedVersion: 2
     m_Bits: 256
+  allButEye:
+    serializedVersion: 2
+    m_Bits: 257
   cardboardHead: {fileID: 0}
   coneGraphic: {fileID: 105850}
 --- !u!1001 &100100000

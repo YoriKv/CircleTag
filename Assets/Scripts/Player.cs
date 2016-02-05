@@ -5,6 +5,7 @@ using UnityEngine.Networking;
 public class Player:NetworkBehaviour {
     public LayerMask floorMask;
     private Vector3 _spawnPos;
+    private Rigidbody rgdBdy;
 
     public override void OnStartLocalPlayer() {
         base.OnStartLocalPlayer();
@@ -15,6 +16,10 @@ public class Player:NetworkBehaviour {
         }
     }
 
+    public void Awake() {
+        rgdBdy = GetComponent<Rigidbody>();
+    }
+
     public void Update() {
         if(!isLocalPlayer)
             return;
@@ -23,9 +28,9 @@ public class Player:NetworkBehaviour {
         RaycastHit hit;
 
         if(Input.GetMouseButton(0) && Physics.Raycast(ray, out hit, 100, floorMask.value)) {
-            Vector3 tarPos = hit.point;
-            tarPos.y = transform.position.y;
-            transform.position = Vector3.MoveTowards(transform.position, tarPos, Time.deltaTime * 15f);
+            Vector3 tarVector = hit.point - transform.position;
+            tarVector.y = transform.position.y;
+            rgdBdy.MovePosition(Vector3.Lerp(transform.position, transform.position + tarVector.normalized * 20f, Time.deltaTime));
         }
     }
 

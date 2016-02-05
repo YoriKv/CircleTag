@@ -14,6 +14,5 @@ public class MyNetManager:NetworkManager {
     }
 
     public override void OnStopClient() {
-        discovery.StopBroadcast();
     }
 }
