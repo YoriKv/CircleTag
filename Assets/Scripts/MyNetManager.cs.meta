@@ -1,10 +1,7 @@
 fileFormatVersion: 2
-guid: 55bed560d28b366428781946004285e8
-labels:
-- android
-- bluetooth
-- multiplayer
-- networking
+guid: 1ac5aa6433981cd4b9187b26790a22ac
+timeCreated: 1454659431
+licenseType: Free
 MonoImporter:
   serializedVersion: 2
   defaultReferences: []
