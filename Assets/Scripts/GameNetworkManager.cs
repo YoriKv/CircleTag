@@ -42,7 +42,6 @@ public class GameNetworkManager:MonoBehaviour {
     }
 
     public void StartClient(string address) {
-        _nd.StopBroadcast();
         _nw.networkAddress = address;
         _nw.StartClient();
         _connected = true;
